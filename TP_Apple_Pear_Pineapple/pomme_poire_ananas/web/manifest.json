@@ -1,6 +1,6 @@
 {
-    "name": "pomme_poire_ananas",
-    "short_name": "pomme_poire_ananas",
+    "name": "apple_pear_pineapple",
+    "short_name": "apple_pear_pineapple",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

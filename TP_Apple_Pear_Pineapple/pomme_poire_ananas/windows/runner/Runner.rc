@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "pomme_poire_ananas" "\0"
+            VALUE "FileDescription", "apple_pear_pineapple" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "pomme_poire_ananas" "\0"
+            VALUE "InternalName", "apple_pear_pineapple" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "pomme_poire_ananas.exe" "\0"
-            VALUE "ProductName", "pomme_poire_ananas" "\0"
+            VALUE "OriginalFilename", "apple_pear_pineapple.exe" "\0"
+            VALUE "ProductName", "apple_pear_pineapple" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
