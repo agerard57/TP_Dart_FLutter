@@ -9,7 +9,7 @@ int sum(int number1, int number2) {
 }
 
 int sumMany(Iterable<int> params) {
-  return params.reduce((value, element) => value + element);
+  return params.fold(0, (previousValue, element) => previousValue + element);
 }
 
 void sumAndPrint(num param1, num param2, {bool shouldPrint = false}) {
