@@ -1,0 +1,8 @@
+{
+        "appBar": "Museum",
+        "name": "Mona Lisa",
+        "artist": "Leonardo da Vinci",
+        "imageAsset":  "images/Mona_Lisa.jpg",
+        "description": "The Mona Lisa, or Portrait of Mona Lisa, is a painting by the artist Leonardo da Vinci, painted between 1503 and 1506 or between 1513 and 15161,2, and possibly until 1517 (the artist being died May 2, 1519), which represents a half-length portrait, probably that of the Florentine Lisa Gherardini, wife of Francesco del Giocondo. Acquired by François I, this 77 × 53 cm oil painting on poplar wood panel is on display at the Louvre Museum in Paris. The Mona Lisa is one of the few paintings definitely attributed to Leonardo da Vinci.\n\nThe Mona Lisa has become an eminently famous painting because, since its creation, many artists have taken it as a reference. During the Romantic period, artists were fascinated by this painting and helped to develop the myth that surrounds it, making this painting one of the most famous works of art in the world, if that is the most famous: it is in any case considered one of the most famous representations of a female face in the world. In the 21st century, it has become the most visited art object in the world, ahead of the Hope Diamond, with 20,000 visitors who come to admire and photograph it daily.",
+        "favorite": "Added to favorites"
+}

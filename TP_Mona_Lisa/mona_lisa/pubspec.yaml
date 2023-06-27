@@ -1,0 +1,30 @@
+name: mona_lisa
+description: A Flutter project showcasing Mona Lisa
+version: 1.0.0
+
+environment:
+  sdk: '>=3.0.5 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  fonts:
+    - family: Merriweather
+      fonts:
+        - asset: fonts/merriweather/Merriweather-Regular.ttf
+        - asset: fonts/merriweather/Merriweather-Bold.ttf
+        - asset: fonts/merriweather/Merriweather-Italic.ttf
+        - asset: fonts/merriweather/Merriweather-BoldItalic.ttf
+        - asset: fonts/merriweather/Merriweather-Light.ttf
+        - asset: fonts/merriweather/Merriweather-LightItalic.ttf
+        - asset: fonts/merriweather/Merriweather-Black.ttf
+        - asset: fonts/merriweather/Merriweather-BlackItalic.ttf
+  assets:
+    - assets/
+  uses-material-design: true
