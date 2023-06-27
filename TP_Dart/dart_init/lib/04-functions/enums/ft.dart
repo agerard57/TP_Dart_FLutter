@@ -1,0 +1,1 @@
+enum Ft { int, double }
