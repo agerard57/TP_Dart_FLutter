@@ -7,8 +7,6 @@ class BachelorAppProvider extends ChangeNotifier {
   List<Bachelor> favoriteBachelors = [];
 
   void toggleFavorite(Bachelor bachelor, BuildContext context) {
-    print(bachelor.firstName);
-    print(favoriteBachelors.map((e) => e.firstName));
     if (favoriteBachelors.contains(bachelor)) {
       favoriteBachelors.remove(bachelor);
       showSnackBar(
