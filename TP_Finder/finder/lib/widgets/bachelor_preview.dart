@@ -1,22 +1,19 @@
-import 'package:finder/utils/snackbar_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
 import '../models/bachelor.dart';
-import '../screens/bachelor_details.dart';
-import 'favorite_button.dart';
+import './favorite_button.dart';
 
 class BachelorPreview extends StatelessWidget {
   final Bachelor bachelor;
   final bool isFavorite;
-  final VoidCallback onFavoritePressed;
-  final Function(Bachelor, bool) onFavoriteStatusChanged;
 
   const BachelorPreview({
     required this.bachelor,
     required this.isFavorite,
-    required this.onFavoritePressed,
-    required this.onFavoriteStatusChanged,
   });
+
+  get bachelorAppProvider => null;
 
   @override
   Widget build(BuildContext context) {
@@ -46,15 +43,7 @@ class BachelorPreview extends StatelessWidget {
       ),
       trailing: FavoriteButton(
         isFavorite: isFavorite,
-        onPressed: () {
-          onFavoritePressed();
-          showSnackBar(
-            context,
-            !isFavorite
-                ? 'You favorite this bachelor!'
-                : 'You unfavorite this bachelor.',
-          );
-        },
+        onPressed: () => bachelorAppProvider.toggleFavorite(bachelor, context),
       ),
       onTap: () {
         GoRouter.of(context).go('/bachelor/${bachelor.id}');

@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../models/bachelor.dart';
+import '../providers/provider.dart';
 
 class FavoriteBachelors extends StatelessWidget {
-  final List<Bachelor> favoriteBachelors;
-
-  const FavoriteBachelors(() param0, {required this.favoriteBachelors});
+  late final List<Bachelor> favoriteBachelors;
 
   @override
   Widget build(BuildContext context) {
+    favoriteBachelors =
+        Provider.of<BachelorAppProvider>(context).favoriteBachelors;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Favorite Bachelors (${favoriteBachelors.length})'),

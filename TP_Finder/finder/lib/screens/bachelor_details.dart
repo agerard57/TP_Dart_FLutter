@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../data/bachelor_data_manager.dart';
 import '../models/bachelor.dart';
-import '../utils/snackbar_utils.dart';
+import '../providers/provider.dart';
 import '../widgets/favorite_button.dart';
 
 class BachelorDetails extends StatefulWidget {
-  final Bachelor bachelor;
-  final bool isFavorite;
-  final Function(Bachelor, bool) onFavoriteStatusChanged;
+  final int id;
 
   BachelorDetails({
-    required this.bachelor,
-    required this.isFavorite,
-    required this.onFavoriteStatusChanged,
+    required this.id,
   });
 
   @override
@@ -19,20 +18,27 @@ class BachelorDetails extends StatefulWidget {
 }
 
 class _BachelorDetailsState extends State<BachelorDetails> {
+  late List<Bachelor> favoriteBachelors;
+  late final Bachelor bachelor;
   late bool isFavorite;
 
   @override
   void initState() {
     super.initState();
-    isFavorite = widget.isFavorite;
+    bachelor = BachelorDataManager().getBachelor(widget.id);
   }
 
   @override
   Widget build(BuildContext context) {
+    final bachelorAppProvider = Provider.of<BachelorAppProvider>(context);
+
+    favoriteBachelors = bachelorAppProvider.favoriteBachelors;
+
+    isFavorite = favoriteBachelors.contains(bachelor);
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '${widget.bachelor.firstName} ${widget.bachelor.lastName}\'s details',
+          '${bachelor.firstName} ${bachelor.lastName}\'s details',
         ),
       ),
       body: Center(
@@ -40,20 +46,20 @@ class _BachelorDetailsState extends State<BachelorDetails> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Hero(
-              tag: widget.bachelor.avatar,
+              tag: bachelor.avatar,
               child: CircleAvatar(
-                backgroundImage: AssetImage(widget.bachelor.avatar),
+                backgroundImage: AssetImage(bachelor.avatar),
                 radius: 50,
               ),
             ),
             SizedBox(height: 20),
             Text(
-              '${widget.bachelor.firstName} ${widget.bachelor.lastName}',
+              '${bachelor.firstName} ${bachelor.lastName}',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
             Text(
-              widget.bachelor.job ?? '',
+              bachelor.job ?? '',
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 20),
@@ -65,27 +71,16 @@ class _BachelorDetailsState extends State<BachelorDetails> {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
-                widget.bachelor.description ?? '',
+                bachelor.description ?? '',
                 style: TextStyle(fontSize: 16),
                 textAlign: TextAlign.center,
               ),
             ),
             SizedBox(height: 20),
             FavoriteButton(
-              isFavorite: isFavorite,
-              onPressed: () {
-                setState(() {
-                  isFavorite = !isFavorite;
-                });
-                widget.onFavoriteStatusChanged(widget.bachelor, isFavorite);
-                showSnackBar(
-                  context,
-                  isFavorite
-                      ? 'You favorite this bachelor!'
-                      : 'You unfavorite this bachelor.',
-                );
-              },
-            ),
+                isFavorite: isFavorite,
+                onPressed: () =>
+                    bachelorAppProvider.toggleFavorite(bachelor, context)),
           ],
         ),
       ),

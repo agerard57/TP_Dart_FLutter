@@ -18,17 +18,8 @@ class AppRouter {
       ),
       GoRoute(
         path: '/bachelor/:id',
-        builder: (context, state) {
-          final id = state.params['id'];
-          if (id != null) {
-            BachelorDetails(id: id),
-          } else {
-            Text('Error: No ID provided');
-          }
-
-          return BachelorDetails(id: state.params['id']),
-        }, 
-      ),  
+        builder: _buildBachelorDetailsRoute,
+      ),
       GoRoute(
         path: '/favorites',
         builder: (context, state) => FavoriteBachelors(),
@@ -38,4 +29,19 @@ class AppRouter {
       return Text('Error Page : ${state.error}');
     },
   );
+}
+
+Widget _buildBachelorDetailsRoute(BuildContext context, GoRouterState state) {
+  final idParam = state.pathParameters['id'];
+  int? id;
+
+  if (idParam != null) {
+    id = int.tryParse(idParam);
+  }
+
+  if (id != null) {
+    return BachelorDetails(id: id);
+  } else {
+    return Text('Error: Invalid ID provided');
+  }
 }

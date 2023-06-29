@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import '../data/dummy_data.dart';
+import 'package:provider/provider.dart';
+
+import '../data/bachelor_data_manager.dart';
 import '../models/bachelor.dart';
+import '../providers/provider.dart';
 import '../widgets/appbar.dart';
 import '../widgets/bachelor_preview.dart';
 
@@ -10,11 +13,21 @@ class BachelorsMasters extends StatefulWidget {
 }
 
 class _BachelorsMastersState extends State<BachelorsMasters> {
-  final List<Bachelor> bachelors = generateFakeBachelors();
-  List<Bachelor> favoriteBachelors = [];
+  late final List<Bachelor> bachelors;
+  late List<Bachelor> favoriteBachelors;
+
+  @override
+  void initState() {
+    super.initState();
+    bachelors = BachelorDataManager().getAllBachelors();
+  }
 
   @override
   Widget build(BuildContext context) {
+    final bachelorAppProvider = Provider.of<BachelorAppProvider>(context);
+
+    favoriteBachelors = bachelorAppProvider.favoriteBachelors;
+
     return Scaffold(
       appBar: buildAppBar(favoriteBachelors, context),
       body: ListView.separated(
@@ -22,35 +35,14 @@ class _BachelorsMastersState extends State<BachelorsMasters> {
         separatorBuilder: (context, index) => Divider(),
         itemBuilder: (context, index) {
           final bachelor = bachelors[index];
+          final isFavorite = favoriteBachelors.contains(bachelor);
+
           return BachelorPreview(
             bachelor: bachelor,
-            isFavorite: favoriteBachelors.contains(bachelor),
-            onFavoritePressed: () => toggleFavorite(bachelor),
-            onFavoriteStatusChanged: (bachelor, isFavorite) =>
-                toggleFavoriteStatus(bachelor, isFavorite),
+            isFavorite: isFavorite,
           );
         },
       ),
     );
-  }
-
-  void toggleFavorite(Bachelor bachelor) {
-    setState(() {
-      if (favoriteBachelors.contains(bachelor)) {
-        favoriteBachelors.remove(bachelor);
-      } else {
-        favoriteBachelors.add(bachelor);
-      }
-    });
-  }
-
-  void toggleFavoriteStatus(Bachelor bachelor, bool isFavorite) {
-    setState(() {
-      if (isFavorite) {
-        favoriteBachelors.add(bachelor);
-      } else {
-        favoriteBachelors.remove(bachelor);
-      }
-    });
   }
 }

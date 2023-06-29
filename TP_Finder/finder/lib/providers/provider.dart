@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 
 import '../models/bachelor.dart';
+import '../utils/snackbar_utils.dart';
 
-class FavoriteBachelorsProvider extends ChangeNotifier {
+class BachelorAppProvider extends ChangeNotifier {
   List<Bachelor> favoriteBachelors = [];
 
-  void toggleFavorite(Bachelor bachelor) {
-    // Toggle the favorite status and notify listeners
+  void toggleFavorite(Bachelor bachelor, BuildContext context) {
+    print(bachelor.firstName);
+    print(favoriteBachelors.map((e) => e.firstName));
     if (favoriteBachelors.contains(bachelor)) {
       favoriteBachelors.remove(bachelor);
+      showSnackBar(
+        context,
+        'You\'ve removed this bachelor from your favorite list.',
+      );
     } else {
       favoriteBachelors.add(bachelor);
+      showSnackBar(
+          context, 'You\'ve added this bachelor to your favorite list!');
     }
     notifyListeners();
   }

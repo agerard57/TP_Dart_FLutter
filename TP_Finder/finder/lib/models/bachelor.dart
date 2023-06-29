@@ -1,16 +1,39 @@
+import 'package:hive/hive.dart';
+
+part 'bachelor.g.dart';
+
+@HiveType(typeId: 1)
 enum Gender {
-  male,
-  female,
+  @HiveField(0)
+  MALE,
+  @HiveField(1)
+  FEMALE,
 }
 
-class Bachelor {
+@HiveType(typeId: 0)
+class Bachelor extends HiveObject {
+  @HiveField(0)
   final int id;
+
+  @HiveField(1)
   final String firstName;
+
+  @HiveField(2)
   final String lastName;
+
+  @HiveField(3)
   final Gender gender;
+
+  @HiveField(4)
   final String avatar;
+
+  @HiveField(5)
   List<Gender> searchFor;
+
+  @HiveField(6)
   String? job;
+
+  @HiveField(7)
   String? description;
 
   Bachelor({
