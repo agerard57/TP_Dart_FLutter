@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
-import '../screens/bachelor_details.dart';
-import '../screens/bachelors_master.dart';
-import '../screens/favorite_bachelors.dart';
+import '../screens/bachelor_details_screen.dart';
+import '../screens/bachelors_home_screen.dart';
+import '../screens/favorite_bachelors_screen.dart';
 
 class AppRouter {
   const AppRouter._();
@@ -14,7 +15,7 @@ class AppRouter {
     routes: <GoRoute>[
       GoRoute(
         path: '/',
-        builder: (context, state) => BachelorsMasters(),
+        builder: (context, state) => BachelorsHome(),
       ),
       GoRoute(
         path: '/bachelor/:id',
@@ -26,7 +27,9 @@ class AppRouter {
       ),
     ],
     errorBuilder: (context, state) {
-      return Text('Error Page : ${state.error}');
+      return Text(
+        AppLocalizations.of(context)!.errorPage(state.error.toString()),
+      );
     },
   );
 }

@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../data/bachelor_data_manager.dart';
-import '../models/bachelor.dart';
-import '../providers/provider.dart';
-import '../widgets/appbar.dart';
-import '../widgets/bachelor_preview.dart';
+import '../models/bachelor_model.dart';
+import '../providers/bachelor_app_provider.dart';
+import '../appbars/home_appbar.dart';
+import '../widgets/bachelor_preview_widget.dart';
 
-class BachelorsMasters extends StatefulWidget {
+class BachelorsHome extends StatefulWidget {
   @override
-  _BachelorsMastersState createState() => _BachelorsMastersState();
+  _BachelorsHomeState createState() => _BachelorsHomeState();
 }
 
-class _BachelorsMastersState extends State<BachelorsMasters> {
+class _BachelorsHomeState extends State<BachelorsHome> {
   late final List<Bachelor> bachelors;
   late List<Bachelor> favoriteBachelors;
 
@@ -29,7 +29,7 @@ class _BachelorsMastersState extends State<BachelorsMasters> {
     favoriteBachelors = bachelorAppProvider.favoriteBachelors;
 
     return Scaffold(
-      appBar: buildAppBar(favoriteBachelors, context),
+      appBar: buildHomeAppBar(favoriteBachelors, context),
       body: ListView.separated(
         itemCount: bachelors.length,
         separatorBuilder: (context, index) => Divider(),

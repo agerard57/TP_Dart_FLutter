@@ -1,15 +1,16 @@
-import 'package:finder/models/bachelor.dart';
+import 'package:finder/models/bachelor_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
-AppBar buildAppBar(List<Bachelor> favoriteBachelors, BuildContext context) {
+AppBar buildHomeAppBar(List<Bachelor> favoriteBachelors, BuildContext context) {
   final favoriteCount = favoriteBachelors.length;
 
   return AppBar(
-    title: Text('Home'),
+    title: Text(AppLocalizations.of(context)!.homePageTitle),
     actions: [
       Tooltip(
-        message: 'View favorite',
+        message: AppLocalizations.of(context)!.tooltipFavorites,
         child: Stack(
           children: [
             IconButton(

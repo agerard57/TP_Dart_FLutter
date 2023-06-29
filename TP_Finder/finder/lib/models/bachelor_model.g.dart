@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'bachelor.dart';
+part of 'bachelor_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator

@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
 
-part 'bachelor.g.dart';
+part 'bachelor_model.g.dart';
 
 @HiveType(typeId: 1)
 enum Gender {
@@ -46,4 +46,6 @@ class Bachelor extends HiveObject {
     this.job,
     this.description,
   });
+
+  String get fullName => '$firstName $lastName';
 }

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../models/bachelor.dart';
-import '../utils/snackbar_utils.dart';
+import '../models/bachelor_model.dart';
+import '../utils/snackbar_util.dart';
 
 class BachelorAppProvider extends ChangeNotifier {
   List<Bachelor> favoriteBachelors = [];
@@ -11,12 +12,14 @@ class BachelorAppProvider extends ChangeNotifier {
       favoriteBachelors.remove(bachelor);
       showSnackBar(
         context,
-        'You\'ve removed this bachelor from your favorite list.',
+        AppLocalizations.of(context)!.snackBarMessageRemoveFavorite,
       );
     } else {
       favoriteBachelors.add(bachelor);
       showSnackBar(
-          context, 'You\'ve added this bachelor to your favorite list!');
+        context,
+        AppLocalizations.of(context)!.snackBarMessageRemoveFavorite,
+      );
     }
     notifyListeners();
   }

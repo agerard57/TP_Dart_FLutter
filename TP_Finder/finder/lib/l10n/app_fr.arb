@@ -1,0 +1,56 @@
+{
+  "appTitle": "Find-a-Bachelor",
+  "@appTitle": {
+    "description": "Titre de l'application"
+  },
+  "homePageTitle": "Trouvez votre bachelor",
+  "@homePageTitle": {
+    "description": "Titre de la page d'accueil"
+  },
+  "detailsPageTitle": "Détails de {name}",
+  "@detailsPageTitle": {
+    "description": "Titre de la page détails",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "GERARD Alexandre"
+      }
+    }
+  },
+  "detailsPageDescription": "Description",
+  "@detailsPageDescription": {
+    "description": "Texte description précédant la description du bachelor"
+  },
+  "favoritePageTitle": "Favoris ({length})",
+  "@favoritePageTitle": {
+    "description": "Titre de la page favoris",
+    "placeholders": {
+      "length": {
+        "type": "String",
+        "example": "3"
+      }
+    }
+  },
+  "errorPage": "Page d'erreur : {error}",
+  "@errorPage": {
+    "description": "Message d'erreur",
+    "placeholders": {
+      "error": {
+        "type": "String?",
+        "example": "GoException: pas de route pour page: /notFound"
+      }
+    }
+  },
+  "snackBarMessageAddFavorite": "Vous avez ajouté ce bachelor à votre liste de favoris!",
+  "@snackBarMessageAdd": {
+    "description": "Message snackbar lors de l'ajout d'un bachelor à la liste de favoris"
+  },
+  "snackBarMessageRemoveFavorite": "Vous avez supprimé ce bachelor de votre liste de favoris!",
+  "@snackBarMessageRemoveFavorite": {
+    "description": "Message snackbar lors de la suppression d'un bachelor de la liste de favoris"
+  },
+  "tooltipFavorites": "Voir les favoris",
+  "@tooltipFavorites": {
+    "description": "Tooltip du bouton pour voir les favoris"
+  }
+}

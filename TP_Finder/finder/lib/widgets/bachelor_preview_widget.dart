@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../models/bachelor.dart';
-import './favorite_button.dart';
+import '../models/bachelor_model.dart';
+import 'favorite_button_widget.dart';
 
 class BachelorPreview extends StatelessWidget {
   final Bachelor bachelor;
@@ -28,7 +28,7 @@ class BachelorPreview extends StatelessWidget {
         ),
       ),
       title: Text(
-        '${bachelor.firstName} ${bachelor.lastName}',
+        bachelor.fullName,
         style: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 16.0,

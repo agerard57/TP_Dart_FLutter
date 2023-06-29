@@ -1,0 +1,56 @@
+{
+  "appTitle": "Find-a-Bachelor",
+  "@appTitle": {
+    "description": "Title of the application"
+  },
+  "homePageTitle": "Find your bachelor",
+  "@homePageTitle": {
+    "description": "Title of the home page"
+  },
+  "detailsPageTitle": "{name}'s details",
+  "@detailsPageTitle": {
+    "description": "Title of the details page",
+    "placeholders": {
+      "name": {
+        "type": "String?",
+        "example": "GERARD Alexandre"
+      }
+    }
+  },
+  "detailsPageDescription": "Description",
+  "@detailsPageDescription": {
+    "description": "Description text preceding the description of the bachelor"
+  },
+  "favoritePageTitle": "Favorite Bachelors ({length})",
+  "@favoritePageTitle": {
+    "description": "Title of the favorite page",
+    "placeholders": {
+      "length": {
+        "type": "String",
+        "example": "3"
+      }
+    }
+  },
+  "errorPage": "Error Page : {error}",
+  "@errorPage": {
+    "description": "Error message",
+    "placeholders": {
+      "error": {
+        "type": "String",
+        "example": "GoException: no routes for location: /notFound"
+      }
+    }
+  },
+  "snackBarMessageAddFavorite": "You've added this bachelor to your favorite list!",
+  "@snackBarMessageAdd": {
+    "description": "Snackbar message when adding a bachelor to the favorite list"
+  },
+  "snackBarMessageRemoveFavorite": "You've removed this bachelor from your favorite list!",
+  "@snackBarMessageRemoveFavorite": {
+    "description": "Snackbar message when removing a bachelor from the favorite list"
+  },
+  "tooltipFavorites": "See favorites",
+  "@tooltipFavorites": {
+    "description": "Tooltip message for the favorites button"
+  }
+}

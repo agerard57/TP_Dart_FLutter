@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
 
-import '../models/bachelor.dart';
+import '../models/bachelor_model.dart';
 import 'dummy_data.dart';
 
 class BachelorDataManager {
@@ -13,20 +13,12 @@ class BachelorDataManager {
     await _bachelorBox.addAll(generateFakeBachelors());
   }
 
-  Future<void> saveBachelor(Bachelor bachelor) async {
-    await _bachelorBox.put(bachelor.id, bachelor);
-  }
-
   Bachelor getBachelor(int id) {
     return _bachelorBox.get(id);
   }
 
   List<Bachelor> getAllBachelors() {
     return _bachelorBox.values.toList().cast<Bachelor>();
-  }
-
-  Future<void> deleteBachelor(int id) async {
-    await _bachelorBox.delete(id);
   }
 
   Future<void> clearAllBachelors() async {

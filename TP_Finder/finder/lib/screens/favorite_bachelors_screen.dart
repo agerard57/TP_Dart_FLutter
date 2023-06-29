@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
-import '../models/bachelor.dart';
-import '../providers/provider.dart';
+import '../models/bachelor_model.dart';
+import '../providers/bachelor_app_provider.dart';
 
 class FavoriteBachelors extends StatelessWidget {
   late final List<Bachelor> favoriteBachelors;
@@ -14,8 +15,8 @@ class FavoriteBachelors extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Favorite Bachelors (${favoriteBachelors.length})'),
-      ),
+          title: Text(AppLocalizations.of(context)!
+              .favoritePageTitle(favoriteBachelors.length.toString()))),
       body: ListView.builder(
         itemCount: favoriteBachelors.length,
         itemBuilder: (context, index) {
@@ -25,7 +26,7 @@ class FavoriteBachelors extends StatelessWidget {
               backgroundImage: AssetImage(bachelor.avatar),
             ),
             title: Text(
-              '${bachelor.firstName} ${bachelor.lastName}',
+              bachelor.fullName,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16.0,

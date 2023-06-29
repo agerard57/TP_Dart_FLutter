@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import '../data/bachelor_data_manager.dart';
-import '../models/bachelor.dart';
-import '../providers/provider.dart';
-import '../widgets/favorite_button.dart';
+import '../models/bachelor_model.dart';
+import '../providers/bachelor_app_provider.dart';
+import '../widgets/favorite_button_widget.dart';
 
 class BachelorDetails extends StatefulWidget {
   final int id;
@@ -37,9 +38,9 @@ class _BachelorDetailsState extends State<BachelorDetails> {
     isFavorite = favoriteBachelors.contains(bachelor);
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          '${bachelor.firstName} ${bachelor.lastName}\'s details',
-        ),
+        title: Text(AppLocalizations.of(context)!.detailsPageTitle(
+          bachelor.fullName,
+        )),
       ),
       body: Center(
         child: Column(
@@ -54,7 +55,7 @@ class _BachelorDetailsState extends State<BachelorDetails> {
             ),
             SizedBox(height: 20),
             Text(
-              '${bachelor.firstName} ${bachelor.lastName}',
+              bachelor.fullName,
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
@@ -64,7 +65,7 @@ class _BachelorDetailsState extends State<BachelorDetails> {
             ),
             SizedBox(height: 20),
             Text(
-              'Description:',
+              AppLocalizations.of(context)!.detailsPageDescription,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
