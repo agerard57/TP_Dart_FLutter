@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../models/bachelor.dart';
 
-class LikedBachelorsScreen extends StatelessWidget {
+class BachelorsLiked extends StatelessWidget {
   final List<Bachelor> likedBachelors;
 
-  const LikedBachelorsScreen({required this.likedBachelors});
+  const BachelorsLiked({required this.likedBachelors});
 
   @override
   Widget build(BuildContext context) {
