@@ -17,8 +17,8 @@ void main() {
 
   test('4.5', () {
     expect(functions.sumAndFormat(3600, 30), 3630);
-    expect(functions.sumAndFormat(3600, 30, ft: Ft.int).runtimeType, int);
-    expect(functions.sumAndFormat(3600, 30, ft: Ft.double).runtimeType, double);
+    expect(functions.sumAndFormat(3600, 30, ft: Ft.INT).runtimeType, int);
+    expect(functions.sumAndFormat(3600, 30, ft: Ft.DOUBLE).runtimeType, double);
   });
 
   test('4.6', () {

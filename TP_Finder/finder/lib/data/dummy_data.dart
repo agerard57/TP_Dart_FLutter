@@ -11,8 +11,8 @@ List<Bachelor> generateFakeBachelors() {
 
     final firstName = fullName.split(' ')[0];
     final lastName = fullName.split(' ')[1];
-    final gender = i < 15 ? Gender.male : Gender.female;
-    final avatar = gender == Gender.male
+    final gender = i < 15 ? Gender.MALE : Gender.FEMALE;
+    final avatar = gender == Gender.MALE
         ? 'images/man-${i + 1}.png'
         : 'images/woman-${i - 14}.png';
     final job = faker.job.title();

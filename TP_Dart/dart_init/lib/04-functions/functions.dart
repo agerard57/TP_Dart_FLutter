@@ -23,9 +23,9 @@ void sumAndPrint(num param1, num param2, {bool shouldPrint = false}) {
 dynamic sumAndFormat(num num1, num num2, {Ft? ft}) {
   num sum = num1 + num2;
 
-  if (ft == Ft.int) {
+  if (ft == Ft.INT) {
     return sum.toInt();
-  } else if (ft == Ft.double) {
+  } else if (ft == Ft.DOUBLE) {
     return sum.toDouble();
   } else {
     return sum;

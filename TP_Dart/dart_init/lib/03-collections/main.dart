@@ -43,10 +43,10 @@ void main() {
   ];
 
   List<SolarSystemElement> elements = [
-    SolarSystemElement('sun', Kind.star),
-    SolarSystemElement('earth', Kind.planet),
-    SolarSystemElement('moon', Kind.satellite),
-    SolarSystemElement('pluton', Kind.satellite)
+    SolarSystemElement('sun', Kind.STAR),
+    SolarSystemElement('earth', Kind.PLANET),
+    SolarSystemElement('moon', Kind.SATELLITE),
+    SolarSystemElement('pluton', Kind.SATELLITE)
   ];
 
   final scenarios = [

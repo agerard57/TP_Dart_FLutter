@@ -1,1 +1,1 @@
-enum Kind { planet, star, satellite, asteroid, comet }
+enum Kind { PLANET, STAR, SATELLITE, ASTEROID, COMET }
