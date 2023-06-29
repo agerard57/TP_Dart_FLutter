@@ -12,7 +12,7 @@
     "description": "Title of the details page",
     "placeholders": {
       "name": {
-        "type": "String?",
+        "type": "String",
         "example": "GERARD Alexandre"
       }
     }
@@ -30,6 +30,10 @@
         "example": "3"
       }
     }
+  },
+  "favoriteEmptyPageTitle": "There are currently no favorites, go and add some!",
+  "@favoriteEmptyPageTitle": {
+    "description": "Content of the favorite page when there are no favorites"
   },
   "errorPage": "Error Page : {error}",
   "@errorPage": {
@@ -49,8 +53,20 @@
   "@snackBarMessageRemoveFavorite": {
     "description": "Snackbar message when removing a bachelor from the favorite list"
   },
+  "snackBarMessageLocale": "You've changed the language to English!",
+  "@snackBarMessageLocale": {
+    "description": "Snackbar message when changing the language"
+  },
   "tooltipFavorites": "See favorites",
   "@tooltipFavorites": {
     "description": "Tooltip message for the favorites button"
+  },
+  "devModeSpeedDialTooltip": "Dev menu",
+  "@devModeSpeedDialTooltip": {
+    "description": "Tooltip message for the dev menu button"
+  },
+  "devModeSpeedDialLanguageLabel": "Switch to French",
+  "@devModeSpeedDialLanguageLabel": {
+    "description": "Label for the language switch button"
   }
 }

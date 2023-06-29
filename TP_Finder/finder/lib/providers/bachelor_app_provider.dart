@@ -18,7 +18,7 @@ class BachelorAppProvider extends ChangeNotifier {
       favoriteBachelors.add(bachelor);
       showSnackBar(
         context,
-        AppLocalizations.of(context)!.snackBarMessageRemoveFavorite,
+        AppLocalizations.of(context)!.snackBarMessageAddFavorite,
       );
     }
     notifyListeners();

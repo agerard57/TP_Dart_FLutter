@@ -31,12 +31,16 @@
       }
     }
   },
+  "favoriteEmptyPageTitle": "Vous n'avez pas encore de favoris",
+  "@favoriteEmptyPageTitle": {
+    "description": "Titre de la page favoris vide"
+  },
   "errorPage": "Page d'erreur : {error}",
   "@errorPage": {
     "description": "Message d'erreur",
     "placeholders": {
       "error": {
-        "type": "String?",
+        "type": "String",
         "example": "GoException: pas de route pour page: /notFound"
       }
     }
@@ -49,8 +53,20 @@
   "@snackBarMessageRemoveFavorite": {
     "description": "Message snackbar lors de la suppression d'un bachelor de la liste de favoris"
   },
+  "snackBarMessageLocale": "Vous avez changé la langue en Français !",
+  "@snackBarMessageLocale": {
+    "description": "Message snackbar lors du changement de langue"
+  },
   "tooltipFavorites": "Voir les favoris",
   "@tooltipFavorites": {
     "description": "Tooltip du bouton pour voir les favoris"
+  },
+  "devModeSpeedDialTooltip": "Menu développeur",
+  "@devModeSpeedDialTooltip": {
+    "description": "Tooltip du bouton pour activer le menu développeur"
+  },
+  "devModeSpeedDialLanguageLabel": "Passer en Anglais",
+  "@devModeSpeedDialLanguageLabel": {
+    "description": "Label du bouton pour switcher la langue"
   }
 }

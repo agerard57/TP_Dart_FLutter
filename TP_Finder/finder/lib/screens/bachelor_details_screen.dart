@@ -1,43 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../data/bachelor_data_manager.dart';
-import '../models/bachelor_model.dart';
 import '../providers/bachelor_app_provider.dart';
 import '../widgets/favorite_button_widget.dart';
 
-class BachelorDetails extends StatefulWidget {
+class BachelorDetails extends StatelessWidget {
   final int id;
 
-  BachelorDetails({
+  const BachelorDetails({
     required this.id,
   });
 
   @override
-  _BachelorDetailsState createState() => _BachelorDetailsState();
-}
-
-class _BachelorDetailsState extends State<BachelorDetails> {
-  late List<Bachelor> favoriteBachelors;
-  late final Bachelor bachelor;
-  late bool isFavorite;
-
-  @override
-  void initState() {
-    super.initState();
-    bachelor = BachelorDataManager().getBachelor(widget.id);
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final bachelor = BachelorDataManager().getBachelor(id);
     final bachelorAppProvider = Provider.of<BachelorAppProvider>(context);
+    final favoriteBachelors = bachelorAppProvider.favoriteBachelors;
+    final isFavorite = favoriteBachelors.contains(bachelor);
 
-    favoriteBachelors = bachelorAppProvider.favoriteBachelors;
-
-    isFavorite = favoriteBachelors.contains(bachelor);
     return Scaffold(
       appBar: AppBar(
+        leading: BackButton(onPressed: () => GoRouter.of(context).go("/")),
         title: Text(AppLocalizations.of(context)!.detailsPageTitle(
           bachelor.fullName,
         )),
@@ -79,9 +65,10 @@ class _BachelorDetailsState extends State<BachelorDetails> {
             ),
             SizedBox(height: 20),
             FavoriteButton(
-                isFavorite: isFavorite,
-                onPressed: () =>
-                    bachelorAppProvider.toggleFavorite(bachelor, context)),
+              isFavorite: isFavorite,
+              onPressed: () =>
+                  bachelorAppProvider.toggleFavorite(bachelor, context),
+            ),
           ],
         ),
       ),

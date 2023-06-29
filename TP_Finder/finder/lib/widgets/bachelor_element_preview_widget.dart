@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
+import '../providers/bachelor_app_provider.dart';
 import '../models/bachelor_model.dart';
 import 'favorite_button_widget.dart';
 
-class BachelorPreview extends StatelessWidget {
+class BachelorElementPreview extends StatelessWidget {
   final Bachelor bachelor;
   final bool isFavorite;
 
-  const BachelorPreview({
+  const BachelorElementPreview({
     required this.bachelor,
     required this.isFavorite,
   });
 
-  get bachelorAppProvider => null;
-
   @override
   Widget build(BuildContext context) {
+    final bachelorAppProvider = Provider.of<BachelorAppProvider>(context);
     final backgroundColor = isFavorite ? Colors.pink[50] : null;
 
     return ListTile(

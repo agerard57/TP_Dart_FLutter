@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:faker/faker.dart';
+
 import '../models/bachelor_model.dart';
 import 'men_first_names_data.dart';
 import 'last_names_data.dart';
@@ -21,9 +23,12 @@ List<Bachelor> generateFakeBachelors() {
     final avatar = gender == Gender.MALE
         ? 'images/man-${i + 1}.png'
         : 'images/woman-${i - 14}.png';
-    final job = 'Some Job'; // Replace with actual job data
-    final description =
-        'Some description'; // Replace with actual description data
+    final job = faker.job.title();
+    final description = faker.lorem
+        .sentences(3)
+        .toString()
+        .replaceAll('[', '')
+        .replaceAll(']', '');
 
     final bachelor = Bachelor(
       id: i,
