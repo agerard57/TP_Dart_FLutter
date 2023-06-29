@@ -1,25 +1,26 @@
 import 'package:finder/utils/snackbar_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../models/bachelor.dart';
 import '../screens/bachelor_details.dart';
-import 'like_button.dart';
+import 'favorite_button.dart';
 
 class BachelorPreview extends StatelessWidget {
   final Bachelor bachelor;
-  final bool isLiked;
-  final VoidCallback onLikePressed;
-  final Function(Bachelor, bool) onLikeStatusChanged;
+  final bool isFavorite;
+  final VoidCallback onFavoritePressed;
+  final Function(Bachelor, bool) onFavoriteStatusChanged;
 
   const BachelorPreview({
     required this.bachelor,
-    required this.isLiked,
-    required this.onLikePressed,
-    required this.onLikeStatusChanged,
+    required this.isFavorite,
+    required this.onFavoritePressed,
+    required this.onFavoriteStatusChanged,
   });
 
   @override
   Widget build(BuildContext context) {
-    final backgroundColor = isLiked ? Colors.pink[50] : null;
+    final backgroundColor = isFavorite ? Colors.pink[50] : null;
 
     return ListTile(
       tileColor: backgroundColor,
@@ -43,29 +44,20 @@ class BachelorPreview extends StatelessWidget {
           fontSize: 14.0,
         ),
       ),
-      trailing: LikeButton(
-        isLiked: isLiked,
+      trailing: FavoriteButton(
+        isFavorite: isFavorite,
         onPressed: () {
-          onLikePressed();
+          onFavoritePressed();
           showSnackBar(
             context,
-            !isLiked
-                ? 'You liked this bachelor!'
-                : 'You unliked this bachelor.',
+            !isFavorite
+                ? 'You favorite this bachelor!'
+                : 'You unfavorite this bachelor.',
           );
         },
       ),
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => DetailsScreen(
-              bachelor: bachelor,
-              isLiked: isLiked,
-              onLikeStatusChanged: onLikeStatusChanged,
-            ),
-          ),
-        );
+        GoRouter.of(context).go('/bachelor/${bachelor.id}');
       },
     );
   }

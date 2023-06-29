@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
 import '../models/bachelor.dart';
 import '../utils/snackbar_utils.dart';
-import '../widgets/like_button.dart';
+import '../widgets/favorite_button.dart';
 
-class DetailsScreen extends StatefulWidget {
+class BachelorDetails extends StatefulWidget {
   final Bachelor bachelor;
-  final bool isLiked;
-  final Function(Bachelor, bool) onLikeStatusChanged;
+  final bool isFavorite;
+  final Function(Bachelor, bool) onFavoriteStatusChanged;
 
-  DetailsScreen({
+  BachelorDetails({
     required this.bachelor,
-    required this.isLiked,
-    required this.onLikeStatusChanged,
+    required this.isFavorite,
+    required this.onFavoriteStatusChanged,
   });
 
   @override
-  _DetailsScreenState createState() => _DetailsScreenState();
+  _BachelorDetailsState createState() => _BachelorDetailsState();
 }
 
-class _DetailsScreenState extends State<DetailsScreen> {
-  late bool isLiked;
+class _BachelorDetailsState extends State<BachelorDetails> {
+  late bool isFavorite;
 
   @override
   void initState() {
     super.initState();
-    isLiked = widget.isLiked;
+    isFavorite = widget.isFavorite;
   }
 
   @override
@@ -71,18 +71,18 @@ class _DetailsScreenState extends State<DetailsScreen> {
               ),
             ),
             SizedBox(height: 20),
-            LikeButton(
-              isLiked: isLiked,
+            FavoriteButton(
+              isFavorite: isFavorite,
               onPressed: () {
                 setState(() {
-                  isLiked = !isLiked;
+                  isFavorite = !isFavorite;
                 });
-                widget.onLikeStatusChanged(widget.bachelor, isLiked);
+                widget.onFavoriteStatusChanged(widget.bachelor, isFavorite);
                 showSnackBar(
                   context,
-                  isLiked
-                      ? 'You liked this bachelor!'
-                      : 'You unliked this bachelor.',
+                  isFavorite
+                      ? 'You favorite this bachelor!'
+                      : 'You unfavorite this bachelor.',
                 );
               },
             ),

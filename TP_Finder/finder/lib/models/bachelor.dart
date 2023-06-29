@@ -4,6 +4,7 @@ enum Gender {
 }
 
 class Bachelor {
+  final int id;
   final String firstName;
   final String lastName;
   final Gender gender;
@@ -13,6 +14,7 @@ class Bachelor {
   String? description;
 
   Bachelor({
+    required this.id,
     required this.firstName,
     required this.lastName,
     required this.gender,

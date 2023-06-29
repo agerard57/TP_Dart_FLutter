@@ -11,12 +11,12 @@ class BachelorsMasters extends StatefulWidget {
 
 class _BachelorsMastersState extends State<BachelorsMasters> {
   final List<Bachelor> bachelors = generateFakeBachelors();
-  List<Bachelor> likedBachelors = [];
+  List<Bachelor> favoriteBachelors = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(likedBachelors, context),
+      appBar: buildAppBar(favoriteBachelors, context),
       body: ListView.separated(
         itemCount: bachelors.length,
         separatorBuilder: (context, index) => Divider(),
@@ -24,32 +24,32 @@ class _BachelorsMastersState extends State<BachelorsMasters> {
           final bachelor = bachelors[index];
           return BachelorPreview(
             bachelor: bachelor,
-            isLiked: likedBachelors.contains(bachelor),
-            onLikePressed: () => toggleLike(bachelor),
-            onLikeStatusChanged: (bachelor, isLiked) =>
-                toggleLikeStatus(bachelor, isLiked),
+            isFavorite: favoriteBachelors.contains(bachelor),
+            onFavoritePressed: () => toggleFavorite(bachelor),
+            onFavoriteStatusChanged: (bachelor, isFavorite) =>
+                toggleFavoriteStatus(bachelor, isFavorite),
           );
         },
       ),
     );
   }
 
-  void toggleLike(Bachelor bachelor) {
+  void toggleFavorite(Bachelor bachelor) {
     setState(() {
-      if (likedBachelors.contains(bachelor)) {
-        likedBachelors.remove(bachelor);
+      if (favoriteBachelors.contains(bachelor)) {
+        favoriteBachelors.remove(bachelor);
       } else {
-        likedBachelors.add(bachelor);
+        favoriteBachelors.add(bachelor);
       }
     });
   }
 
-  void toggleLikeStatus(Bachelor bachelor, bool isLiked) {
+  void toggleFavoriteStatus(Bachelor bachelor, bool isFavorite) {
     setState(() {
-      if (isLiked) {
-        likedBachelors.add(bachelor);
+      if (isFavorite) {
+        favoriteBachelors.add(bachelor);
       } else {
-        likedBachelors.remove(bachelor);
+        favoriteBachelors.remove(bachelor);
       }
     });
   }

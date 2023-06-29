@@ -19,6 +19,7 @@ List<Bachelor> generateFakeBachelors() {
     final description = faker.lorem.sentences(3).join(' ');
 
     final bachelor = Bachelor(
+      id: i,
       firstName: firstName,
       lastName: lastName,
       gender: gender,

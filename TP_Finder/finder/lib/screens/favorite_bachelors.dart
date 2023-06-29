@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 
 import '../models/bachelor.dart';
 
-class BachelorsLiked extends StatelessWidget {
-  final List<Bachelor> likedBachelors;
+class FavoriteBachelors extends StatelessWidget {
+  final List<Bachelor> favoriteBachelors;
 
-  const BachelorsLiked({required this.likedBachelors});
+  const FavoriteBachelors(() param0, {required this.favoriteBachelors});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Liked Bachelors (${likedBachelors.length})'),
+        title: Text('Favorite Bachelors (${favoriteBachelors.length})'),
       ),
       body: ListView.builder(
-        itemCount: likedBachelors.length,
+        itemCount: favoriteBachelors.length,
         itemBuilder: (context, index) {
-          final bachelor = likedBachelors[index];
+          final bachelor = favoriteBachelors[index];
           return ListTile(
             leading: CircleAvatar(
               backgroundImage: AssetImage(bachelor.avatar),
