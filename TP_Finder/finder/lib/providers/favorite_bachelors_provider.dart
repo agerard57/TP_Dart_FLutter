@@ -4,10 +4,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../models/bachelor_model.dart';
 import '../utils/snackbar_util.dart';
 
-class BachelorAppProvider extends ChangeNotifier {
+class FavoriteBachelorsProvider extends ChangeNotifier {
   List<Bachelor> favoriteBachelors = [];
 
-  void toggleFavorite(Bachelor bachelor, BuildContext context) {
+  void toggleFavorite(Bachelor bachelor, BuildContext context,
+      {bool forceDelete = false}) {
     if (favoriteBachelors.contains(bachelor)) {
       favoriteBachelors.remove(bachelor);
       showSnackBar(
@@ -21,6 +22,11 @@ class BachelorAppProvider extends ChangeNotifier {
         AppLocalizations.of(context)!.snackBarMessageAddFavorite,
       );
     }
+
+    if (forceDelete) {
+      favoriteBachelors.remove(bachelor);
+    }
+
     notifyListeners();
   }
 }

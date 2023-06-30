@@ -1,7 +1,7 @@
 import 'package:hive/hive.dart';
 
-import '../models/bachelor_model.dart';
-import 'dummy_data.dart';
+import '../../models/bachelor_model.dart';
+import '../dummy/dummy_data.dart';
 
 class BachelorDataManager {
   final Box _bachelorBox;

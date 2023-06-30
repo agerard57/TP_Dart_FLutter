@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
+import 'data/repository/bachelor_data_manager.dart';
 import 'finder_app.dart';
-import 'data/bachelor_data_manager.dart';
 import 'models/bachelor_model.dart';
-import 'providers/bachelor_app_provider.dart';
+import 'providers/disliked_bachelors_provider.dart';
+import 'providers/favorite_bachelors_provider.dart';
 
 void main() async {
   await Hive
@@ -17,10 +18,13 @@ void main() async {
   if (Hive.box('bachelors').isEmpty)
     await BachelorDataManager().generateBachelors();
 
-  runApp(
-    ChangeNotifierProvider(
-      create: (context) => BachelorAppProvider(),
-      child: FinderApp(),
-    ),
-  );
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider<FavoriteBachelorsProvider>(
+          create: (context) => FavoriteBachelorsProvider()),
+      ChangeNotifierProvider<DislikedBachelorsProvider>(
+          create: (context) => DislikedBachelorsProvider()),
+    ],
+    child: FinderApp(),
+  ));
 }

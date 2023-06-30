@@ -14,17 +14,18 @@ class DevModeSpeedDial extends StatelessWidget {
       tooltip: AppLocalizations.of(context)!.devModeSpeedDialTooltip,
       heroTag: 'developper-mode-speed-dial',
       elevation: 8.0,
+      overlayColor: Colors.black,
       overlayOpacity: 0.3,
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: Colors.grey[100],
       shape: CircleBorder(),
       children: [
         SpeedDialChild(
           child: Icon(Icons.language),
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.grey[100],
           onTap: () => FinderApp.of(context)!.switchLocale(),
           label: AppLocalizations.of(context)!.devModeSpeedDialLanguageLabel,
           labelStyle: TextStyle(fontSize: 18.0),
-          labelBackgroundColor: Colors.redAccent,
+          labelBackgroundColor: Colors.grey[100],
         ),
       ],
     );

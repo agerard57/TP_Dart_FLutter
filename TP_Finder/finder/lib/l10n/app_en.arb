@@ -53,6 +53,14 @@
   "@snackBarMessageRemoveFavorite": {
     "description": "Snackbar message when removing a bachelor from the favorite list"
   },
+    "snackBarMessageAddDisliked": "This user is now disliked!",
+  "@snackBarMessageAddDisliked": {
+    "description": "Snackbar message when adding a bachelor to the disliked list"
+  },
+    "snackBarMessageRemoveDisliked": "This user is no longer disliked",
+  "@snackBarMessageRemoveDisliked": {
+    "description": "Snackbar message when removing a bachelor from the disliked list"
+  },
   "snackBarMessageLocale": "You've changed the language to English!",
   "@snackBarMessageLocale": {
     "description": "Snackbar message when changing the language"

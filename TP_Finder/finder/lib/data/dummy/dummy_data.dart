@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:faker/faker.dart';
 
-import '../models/bachelor_model.dart';
+import '../../models/bachelor_model.dart';
 import 'men_first_names_data.dart';
 import 'last_names_data.dart';
 import 'women_first_names_data.dart';

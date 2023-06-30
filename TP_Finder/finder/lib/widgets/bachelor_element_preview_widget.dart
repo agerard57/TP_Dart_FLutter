@@ -1,10 +1,12 @@
+import 'package:finder/providers/disliked_bachelors_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/bachelor_app_provider.dart';
+import '../models/display_action_model.dart';
+import '../providers/favorite_bachelors_provider.dart';
 import '../models/bachelor_model.dart';
-import 'favorite_button_widget.dart';
+import 'action_icons_widget.dart';
 
 class BachelorElementPreview extends StatelessWidget {
   final Bachelor bachelor;
@@ -17,38 +19,44 @@ class BachelorElementPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bachelorAppProvider = Provider.of<BachelorAppProvider>(context);
     final backgroundColor = isFavorite ? Colors.pink[50] : null;
 
-    return ListTile(
-      tileColor: backgroundColor,
-      leading: Hero(
-        tag: bachelor.avatar,
-        child: CircleAvatar(
-          backgroundImage: AssetImage(bachelor.avatar),
+    return Consumer2<FavoriteBachelorsProvider, DislikedBachelorsProvider>(
+        builder:
+            (context, favoriteBachelorsProvider, dislikedBachelorsProvider, _) {
+      return ListTile(
+        tileColor: backgroundColor,
+        leading: Hero(
+          tag: bachelor.avatar,
+          child: CircleAvatar(
+            backgroundImage: AssetImage(bachelor.avatar),
+          ),
         ),
-      ),
-      title: Text(
-        bachelor.fullName,
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 16.0,
+        title: Text(
+          bachelor.fullName,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16.0,
+          ),
         ),
-      ),
-      subtitle: Text(
-        bachelor.job ?? '',
-        style: TextStyle(
-          color: Colors.grey,
-          fontSize: 14.0,
+        subtitle: Text(
+          bachelor.job ?? '',
+          style: TextStyle(
+            color: Colors.grey,
+            fontSize: 14.0,
+          ),
         ),
-      ),
-      trailing: FavoriteButton(
-        isFavorite: isFavorite,
-        onPressed: () => bachelorAppProvider.toggleFavorite(bachelor, context),
-      ),
-      onTap: () {
-        GoRouter.of(context).go('/bachelor/${bachelor.id}');
-      },
-    );
+        trailing: ActionIcons(
+            onDislikePressed: () =>
+                dislikedBachelorsProvider.toggleDisliked(bachelor, context),
+            onFavoritePressed: () =>
+                favoriteBachelorsProvider.toggleFavorite(bachelor, context),
+            isFavorite: isFavorite,
+            displayAction: DisplayAction.ALL),
+        onTap: () {
+          GoRouter.of(context).go('/bachelor/${bachelor.id}');
+        },
+      );
+    });
   }
 }

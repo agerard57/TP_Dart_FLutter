@@ -53,6 +53,14 @@
   "@snackBarMessageRemoveFavorite": {
     "description": "Message snackbar lors de la suppression d'un bachelor de la liste de favoris"
   },
+      "snackBarMessageAddDisliked": "Vous n'aimez pas cet utilisateur",
+  "@snackBarMessageAddDisliked": {
+    "description": "Message snackbar lors de l'ajout d'un bachelor à la liste des utilisateurs que l'on n'aime pas"
+  },
+    "snackBarMessageRemoveDisliked": "Cet utilisateur ne vous dérange plus",
+  "@snackBarMessageRemoveDisliked": {
+    "description": "Message snackbar lors de la suppression d'un bachelor de la liste des utilisateurs que l'on n'aime pas"
+  },
   "snackBarMessageLocale": "Vous avez changé la langue en Français !",
   "@snackBarMessageLocale": {
     "description": "Message snackbar lors du changement de langue"
