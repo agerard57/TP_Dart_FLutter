@@ -7,6 +7,46 @@
   "@homePageTitle": {
     "description": "Titre de la page d'accueil"
   },
+  "homePageFiltersFirstNamePlaceholder": "Rechercher par prénom",
+  "@homePageFiltersFirstNamePlaceholder": {
+    "description": "Label du champ de recherche par prénom"
+  },
+  "homePageFiltersGenderMaleButton": "Filter par Hommes",
+  "@homePageFiltersGenderMaleButton": {
+    "description": "Label du bouton de filtrage par genre (hommes)"
+  },
+  "homePageFiltersGenderFemaleButton": "Filter par Femmes",
+  "@homePageFiltersGenderFemaleButton": {
+    "description": "Label du bouton de filtrage par genre (femmes)"
+  },
+    "homePageFiltersGenderMaleChip": "Hommes",
+  "@homePageFiltersGenderMaleChip": {
+    "description": "Chip pour le filtre par hommes"
+  },
+  "homePageFiltersGenderFemaleChip": "Femmes",
+  "@homePageFiltersGenderFemaleChip": {
+    "description": "Chip pour le filtre par femmes"
+  },
+  "homePageFiltersResetButton": "Réinitialiser les filtres",
+  "@homePageFiltersResetButton": {
+    "description": "Label du bouton pour réinitialiser les filtres"
+  },
+  "homePageNoResults": "Aucun résultat",
+  "@homePageNoResults": {
+    "description": "Message affiché lorsqu'aucun résultat n'est trouvé"
+  },
+  "homePageFiltersAppliedLabel": "Filtres appliqués",
+  "@homePageFiltersAppliedLabel": {
+    "description": "Label des filtres appliqués"
+  },
+  "homePageFiltersFirstNameLabel": "Prénom",
+  "@homePageFiltersFirstNameLabel": {
+    "description": "Label du filtre par prénom"
+  },
+  "homePageFiltersGenderLabel": "Genre",
+  "@homePageFiltersGenderLabel": {
+    "description": "Label du filtre par genre"
+  },
   "detailsPageTitle": "Détails de {name}",
   "@detailsPageTitle": {
     "description": "Titre de la page détails",
@@ -53,11 +93,11 @@
   "@snackBarMessageRemoveFavorite": {
     "description": "Message snackbar lors de la suppression d'un bachelor de la liste de favoris"
   },
-      "snackBarMessageAddDisliked": "Vous n'aimez pas cet utilisateur",
+  "snackBarMessageAddDisliked": "Vous n'aimez pas cet utilisateur",
   "@snackBarMessageAddDisliked": {
     "description": "Message snackbar lors de l'ajout d'un bachelor à la liste des utilisateurs que l'on n'aime pas"
   },
-    "snackBarMessageRemoveDisliked": "Cet utilisateur ne vous dérange plus",
+  "snackBarMessageRemoveDisliked": "Cet utilisateur ne vous dérange plus",
   "@snackBarMessageRemoveDisliked": {
     "description": "Message snackbar lors de la suppression d'un bachelor de la liste des utilisateurs que l'on n'aime pas"
   },

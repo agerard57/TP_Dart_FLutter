@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import '../models/bachelor_model.dart';
 import '../providers/favorite_bachelors_provider.dart';
 import '../widgets/bachelor_list_preview_widget.dart';
-import '../widgets/empty_favorite_widget.dart';
+import '../widgets/empty_message_widget.dart';
 
 class FavoriteBachelors extends StatefulWidget {
   @override
@@ -30,7 +30,10 @@ class _FavoriteBachelorsState extends State<FavoriteBachelors> {
               title: Text(AppLocalizations.of(context)!
                   .favoritePageTitle(favoriteBachelors.length.toString()))),
           body: favoriteBachelors.isEmpty
-              ? emptyFavoritePage(context)
+              ? EmptyMessage(
+                  context,
+                  AppLocalizations.of(context)!.favoriteEmptyPageTitle,
+                )
               : BachelorListPreview(
                   bachelorList: favoriteBachelors,
                   favoriteBachelors: favoriteBachelors,

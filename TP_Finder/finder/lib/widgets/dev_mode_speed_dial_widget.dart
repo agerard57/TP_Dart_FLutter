@@ -16,7 +16,7 @@ class DevModeSpeedDial extends StatelessWidget {
       elevation: 8.0,
       overlayColor: Colors.black,
       overlayOpacity: 0.3,
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Colors.deepPurple,
       shape: CircleBorder(),
       children: [
         SpeedDialChild(
