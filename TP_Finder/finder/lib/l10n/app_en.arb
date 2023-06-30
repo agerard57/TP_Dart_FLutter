@@ -71,6 +71,10 @@
       }
     }
   },
+  "favoriteDeleteAllTooltip": "Delete all favorites",
+  "@favoriteDeleteAllTooltip": {
+    "description": "Tooltip message for the delete all favorites button"
+  },
   "favoriteEmptyPageTitle": "There are currently no favorites, go and add some!",
   "@favoriteEmptyPageTitle": {
     "description": "Content of the favorite page when there are no favorites"
@@ -104,6 +108,10 @@
   "snackBarMessageLocale": "You've changed the language to English!",
   "@snackBarMessageLocale": {
     "description": "Snackbar message when changing the language"
+  },
+  "snackBarMessageDeleteAllFavorites": "You've deleted all your favorites!",
+  "@snackBarMessageDeleteAllFavorites": {
+    "description": "Snackbar message when deleting all favorites"
   },
   "tooltipFavorites": "See favorites",
   "@tooltipFavorites": {

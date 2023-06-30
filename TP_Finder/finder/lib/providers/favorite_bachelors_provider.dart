@@ -29,4 +29,13 @@ class FavoriteBachelorsProvider extends ChangeNotifier {
 
     notifyListeners();
   }
+
+  deleteAllFavorites(BuildContext context) {
+    favoriteBachelors.clear();
+    showSnackBar(
+      context,
+      AppLocalizations.of(context)!.snackBarMessageDeleteAllFavorites,
+    );
+    notifyListeners();
+  }
 }

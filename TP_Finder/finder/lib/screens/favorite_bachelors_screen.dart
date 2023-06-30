@@ -22,13 +22,28 @@ class _FavoriteBachelorsState extends State<FavoriteBachelors> {
       builder: (context, provider, _) {
         final favoriteBachelors = provider.favoriteBachelors;
 
+        void deleteAllFavorites() {
+          provider.deleteAllFavorites(context);
+        }
+
         return Scaffold(
           appBar: AppBar(
-              automaticallyImplyLeading: false,
-              leading:
-                  BackButton(onPressed: () => GoRouter.of(context).go("/")),
-              title: Text(AppLocalizations.of(context)!
-                  .favoritePageTitle(favoriteBachelors.length.toString()))),
+            automaticallyImplyLeading: false,
+            leading: BackButton(onPressed: () => GoRouter.of(context).go("/")),
+            title: Text(
+              AppLocalizations.of(context)!
+                  .favoritePageTitle(favoriteBachelors.length.toString()),
+            ),
+            actions: [
+              Tooltip(
+                message: AppLocalizations.of(context)!.favoriteDeleteAllTooltip,
+                child: IconButton(
+                  onPressed: deleteAllFavorites,
+                  icon: Icon(Icons.delete),
+                ),
+              ),
+            ],
+          ),
           body: favoriteBachelors.isEmpty
               ? EmptyMessage(
                   context,

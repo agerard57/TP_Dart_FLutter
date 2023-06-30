@@ -71,6 +71,10 @@
       }
     }
   },
+  "favoriteDeleteAllTooltip": "Supprimer tous les favoris",
+  "@favoriteDeleteAllTooltip": {
+    "description": "Tooltip du bouton pour supprimer tous les favoris"
+  },
   "favoriteEmptyPageTitle": "Vous n'avez pas encore de favoris",
   "@favoriteEmptyPageTitle": {
     "description": "Titre de la page favoris vide"
@@ -104,6 +108,10 @@
   "snackBarMessageLocale": "Vous avez changé la langue en Français !",
   "@snackBarMessageLocale": {
     "description": "Message snackbar lors du changement de langue"
+  },
+  "snackBarMessageDeleteAllFavorites": "Vous avez supprimé tous vos favoris !",
+  "@snackBarMessageDeleteAllFavorites": {
+    "description": "Message snackbar lors de la suppression de tous les favoris"
   },
   "tooltipFavorites": "Voir les favoris",
   "@tooltipFavorites": {
