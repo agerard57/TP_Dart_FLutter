@@ -1,7 +1,7 @@
-import 'package:finder/models/display_action_model.dart';
-import 'package:finder/widgets/disliked_button_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../models/display_action_model.dart';
+import 'disliked_button_widget.dart';
 import 'favorite_button_widget.dart';
 
 class ActionIcons extends StatelessWidget {

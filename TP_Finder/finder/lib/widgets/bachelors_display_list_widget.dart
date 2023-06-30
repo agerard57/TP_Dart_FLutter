@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../models/bachelor_model.dart';
-import 'bachelor_element_preview_widget.dart';
+import 'bachelor_element_list_widget.dart';
 
-class BachelorListPreview extends StatelessWidget {
+class BachelorDisplayList extends StatelessWidget {
   final List<Bachelor> bachelorList;
   final List<Bachelor> favoriteBachelors;
 
-  const BachelorListPreview({
+  const BachelorDisplayList({
     required this.bachelorList,
     required this.favoriteBachelors,
   });
@@ -21,7 +21,7 @@ class BachelorListPreview extends StatelessWidget {
         final bachelor = bachelorList[index];
         final isFavorite = favoriteBachelors.contains(bachelor);
 
-        return BachelorElementPreview(
+        return BachelorElementList(
           bachelor: bachelor,
           isFavorite: isFavorite,
         );

@@ -1,11 +1,11 @@
-import 'package:finder/models/display_action_model.dart';
-import 'package:finder/providers/disliked_bachelors_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../data/repository/bachelor_data_manager.dart';
+import '../models/display_action_model.dart';
+import '../providers/disliked_bachelors_provider.dart';
 import '../providers/favorite_bachelors_provider.dart';
 import '../widgets/action_icons_widget.dart';
 

@@ -4,9 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../models/bachelor_model.dart';
+import '../models/bachelors_display_model.dart';
 import '../providers/favorite_bachelors_provider.dart';
-import '../widgets/bachelor_list_preview_widget.dart';
-import '../widgets/empty_message_widget.dart';
+import '../widgets/bachelors_display_manager_widget.dart';
 
 class FavoriteBachelors extends StatefulWidget {
   @override
@@ -44,15 +44,11 @@ class _FavoriteBachelorsState extends State<FavoriteBachelors> {
               ),
             ],
           ),
-          body: favoriteBachelors.isEmpty
-              ? EmptyMessage(
-                  context,
-                  AppLocalizations.of(context)!.favoriteEmptyPageTitle,
-                )
-              : BachelorListPreview(
-                  bachelorList: favoriteBachelors,
-                  favoriteBachelors: favoriteBachelors,
-                ),
+          body: BachelorDisplayManager(
+            mode: BachelorsDisplayMode.LIST,
+            bachelorList: favoriteBachelors,
+            favoriteBachelors: favoriteBachelors,
+          ),
         );
       },
     );

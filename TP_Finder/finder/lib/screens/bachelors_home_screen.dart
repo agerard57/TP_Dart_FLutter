@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import '../data/repository/bachelor_data_manager.dart';
 import '../models/bachelor_model.dart';
+import '../models/bachelors_display_model.dart';
 import '../providers/favorite_bachelors_provider.dart';
 import '../providers/disliked_bachelors_provider.dart';
 import '../appbars/home_appbar.dart';
-import '../widgets/bachelor_list_preview_widget.dart';
+import '../widgets/bachelors_display_manager_widget.dart';
 import '../widgets/dev_mode_speed_dial_widget.dart';
-import '../widgets/empty_message_widget.dart';
 import '../widgets/filter_bar_widget.dart';
 
 class BachelorsHome extends StatefulWidget {
@@ -82,13 +81,11 @@ class _BachelorsHomeState extends State<BachelorsHome> {
                     .where((bachelor) => !dislikedList.contains(bachelor))
                     .toList();
 
-                return updatedBachelors.isNotEmpty
-                    ? BachelorListPreview(
-                        bachelorList: updatedBachelors,
-                        favoriteBachelors: favoriteBachelors,
-                      )
-                    : EmptyMessage(context,
-                        AppLocalizations.of(context)!.homePageNoResults);
+                return BachelorDisplayManager(
+                  mode: BachelorsDisplayMode.ALL,
+                  bachelorList: updatedBachelors,
+                  favoriteBachelors: favoriteBachelors,
+                );
               },
             ),
           ),

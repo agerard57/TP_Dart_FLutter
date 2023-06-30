@@ -1,18 +1,18 @@
-import 'package:finder/providers/disliked_bachelors_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../models/display_action_model.dart';
+import '../providers/disliked_bachelors_provider.dart';
 import '../providers/favorite_bachelors_provider.dart';
 import '../models/bachelor_model.dart';
 import 'action_icons_widget.dart';
 
-class BachelorElementPreview extends StatelessWidget {
+class BachelorElementList extends StatelessWidget {
   final Bachelor bachelor;
   final bool isFavorite;
 
-  const BachelorElementPreview({
+  const BachelorElementList({
     required this.bachelor,
     required this.isFavorite,
   });

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:finder/widgets/filter_applied_widget.dart';
 
 import '../models/bachelor_model.dart';
+import 'filter_applied_widget.dart';
 import 'filter_first_name_widget.dart';
 import 'filter_gender_widget.dart';
 import 'filter_reset_button_widget.dart';
