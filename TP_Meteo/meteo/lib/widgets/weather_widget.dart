@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../services/city_service.dart';
+import 'package:geolocator/geolocator.dart';
 import '../services/weather_service.dart';
+import 'map_widget.dart';
 
 class WeatherWidget extends StatefulWidget {
   const WeatherWidget({Key? key}) : super(key: key);
@@ -24,15 +24,7 @@ class WeatherWidgetState extends State<WeatherWidget> {
     String city = _cityController.text;
     if (city.isNotEmpty) {
       setState(() {
-        _weatherData = getCityCoordinates(city).then((coordinates) {
-          double? latitude = coordinates['lat'];
-          double? longitude = coordinates['lon'];
-          if (latitude != null && longitude != null) {
-            return getWeatherData(latitude, longitude);
-          } else {
-            throw Exception('Invalid city coordinates');
-          }
-        });
+        _weatherData = WeatherService.getWeatherDataByCity(cityName: city);
       });
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -41,6 +33,34 @@ class WeatherWidgetState extends State<WeatherWidget> {
         ),
       );
     }
+  }
+
+  Future<void> _getCurrentLocationWeather() async {
+    bool locationServiceEnabled;
+    LocationPermission permission;
+
+    locationServiceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!locationServiceEnabled) {
+      return;
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission != LocationPermission.whileInUse &&
+          permission != LocationPermission.always) {
+        return;
+      }
+    }
+
+    Position position = await Geolocator.getCurrentPosition();
+
+    setState(() {
+      _weatherData = WeatherService.getWeatherDataByLocation(
+        position.latitude,
+        position.longitude,
+      );
+    });
   }
 
   @override
@@ -71,7 +91,23 @@ class WeatherWidgetState extends State<WeatherWidget> {
               ),
             ),
             onPressed: _submitForm,
-            child: const Text('Get weather data'),
+            child: const Text('Get weather data by city'),
+          ),
+          const SizedBox(height: 16.0),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              backgroundColor: Colors.deepPurple,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              textStyle: const TextStyle(
+                fontSize: 16.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            onPressed: _getCurrentLocationWeather,
+            child: const Text('Get weather data using current location'),
           ),
           const SizedBox(height: 16.0),
           FutureBuilder<Map<String, dynamic>>(
@@ -87,22 +123,31 @@ class WeatherWidgetState extends State<WeatherWidget> {
                 final country = weatherData['sys']['country'];
                 final temperature = weatherData['main']['temp'];
 
-                return Column(
-                  children: [
-                    Text('City: $cityName, Country: $country'),
-                    const SizedBox(height: 8.0),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Icon(Icons.thermostat_outlined),
-                        const SizedBox(width: 4.0),
-                        Text('$temperature °C'),
-                      ],
-                    ),
-                  ],
+                return Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('City: $cityName, Country: $country'),
+                      const SizedBox(height: 8.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.thermostat_outlined),
+                          const SizedBox(width: 4.0),
+                          Text('$temperature °C'),
+                        ],
+                      ),
+                      Flexible(
+                        child: MapWidget(
+                          latitude: snapshot.data!['coord']['lat'] as double,
+                          longitude: snapshot.data!['coord']['lon'] as double,
+                        ),
+                      ),
+                    ],
+                  ),
                 );
               } else {
-                return const SizedBox.shrink();
+                return const Text('No weather data available');
               }
             },
           ),
