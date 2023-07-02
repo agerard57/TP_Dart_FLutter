@@ -1,3 +1,4 @@
+import 'package:finder/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
@@ -26,13 +27,10 @@ AppBar buildHomeAppBar(List<Bachelor> favoriteBachelors, BuildContext context) {
                 top: 6,
                 child: CircleAvatar(
                   radius: 8,
-                  backgroundColor: Colors.red,
+                  backgroundColor: AppColors['favorite'],
                   child: Text(
                     favoriteCount.toString(),
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.white,
-                    ),
+                    style: TextStyle(fontSize: 12, color: AppColors['white']),
                   ),
                 ),
               ),

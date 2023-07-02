@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../constants/app_colors.dart';
 import '../models/bachelor_model.dart';
 
 class GenderFilter extends StatelessWidget {
@@ -28,7 +29,11 @@ class GenderFilter extends StatelessWidget {
           ElevatedButton(
             onPressed: () => onGenderFilterChanged(Gender.MALE),
             style: ElevatedButton.styleFrom(
-              backgroundColor: isMaleSelected ? Colors.grey : Colors.deepPurple,
+              backgroundColor:
+                  isMaleSelected ? AppColors['grey'] : AppColors['primary'],
+              foregroundColor: isMaleSelected
+                  ? AppColors["greyChipTextDisabled"]
+                  : AppColors["white"],
             ),
             child: Text(
                 AppLocalizations.of(context)!.homePageFiltersGenderMaleButton),
@@ -38,7 +43,10 @@ class GenderFilter extends StatelessWidget {
             onPressed: () => onGenderFilterChanged(Gender.FEMALE),
             style: ElevatedButton.styleFrom(
               backgroundColor:
-                  isFemaleSelected ? Colors.grey : Colors.deepPurple,
+                  isFemaleSelected ? AppColors['grey'] : AppColors['primary'],
+              foregroundColor: isFemaleSelected
+                  ? AppColors["greyChipTextDisabled"]
+                  : AppColors["white"],
             ),
             child: Text(AppLocalizations.of(context)!
                 .homePageFiltersGenderFemaleButton),

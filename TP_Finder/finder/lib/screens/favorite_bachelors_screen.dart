@@ -29,7 +29,7 @@ class _FavoriteBachelorsState extends State<FavoriteBachelors> {
         return Scaffold(
           appBar: AppBar(
             automaticallyImplyLeading: false,
-            leading: BackButton(onPressed: () => GoRouter.of(context).go("/")),
+            leading: BackButton(onPressed: () => GoRouter.of(context).go('/')),
             title: Text(
               AppLocalizations.of(context)!
                   .favoritePageTitle(favoriteBachelors.length.toString()),

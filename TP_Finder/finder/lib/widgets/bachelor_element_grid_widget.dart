@@ -1,3 +1,4 @@
+import 'package:finder/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -19,7 +20,7 @@ class BachelorElementGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final backgroundColor = isFavorite ? Colors.pink[50] : null;
+    final backgroundColor = isFavorite ? AppColors['favoriteBackground'] : null;
 
     return Consumer2<FavoriteBachelorsProvider, DislikedBachelorsProvider>(
       builder:
@@ -58,7 +59,7 @@ class BachelorElementGrid extends StatelessWidget {
                 Text(
                   bachelor.job ?? '',
                   style: TextStyle(
-                    color: Colors.grey,
+                    color: AppColors['grey'],
                     fontSize: 14.0,
                   ),
                 ),

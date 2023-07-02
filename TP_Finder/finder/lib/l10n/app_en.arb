@@ -31,6 +31,18 @@
   "@homePageFiltersResetButton": {
     "description": "Button label for reset filters"
   },
+  "homePageDrawerTitle": "Settings",
+  "@homePageDrawerTitle": {
+    "description": "Title of the settings drawer"
+  },
+  "homePageDrawerDarkThemeLabel": "Dark theme",
+  "@homePageDrawerDarkThemeLabel": {
+    "description": "Label of the dark theme switch"
+  },
+  "homePageDrawerLightThemeLabel": "Light theme",
+  "@homePageDrawerLightThemeLabel": {
+    "description": "Label of the light theme switch"
+  },
   "pageNoResults": "No results found",
   "@pageNoResults": {
     "description": "Message appearing when there are no results"

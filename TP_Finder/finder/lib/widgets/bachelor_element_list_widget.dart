@@ -1,7 +1,9 @@
+import 'package:finder/providers/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
+import '../constants/app_colors.dart';
 import '../models/display_action_model.dart';
 import '../providers/disliked_bachelors_provider.dart';
 import '../providers/favorite_bachelors_provider.dart';
@@ -21,8 +23,17 @@ class BachelorElementList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final backgroundColor = isFavorite ? Colors.pink[50] : null;
+    final dislikedBachelorsProvider =
+        Provider.of<DislikedBachelorsProvider>(context, listen: false);
+    final favoriteBachelorsProvider =
+        Provider.of<FavoriteBachelorsProvider>(context, listen: false);
+    final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
 
+    final backgroundColor = isFavorite
+        ? themeProvider.isDarkModeEnabled
+            ? AppColors['favoriteBackgroundDark']
+            : AppColors['favoriteBackgroundLight']
+        : null;
     Widget content = ListTile(
       tileColor: backgroundColor,
       leading: Hero(
@@ -41,17 +52,15 @@ class BachelorElementList extends StatelessWidget {
       subtitle: Text(
         bachelor.job ?? '',
         style: TextStyle(
-          color: Colors.grey,
+          color: AppColors['grey'],
           fontSize: 14.0,
         ),
       ),
       trailing: ActionIcons(
         onDislikePressed: () =>
-            Provider.of<DislikedBachelorsProvider>(context, listen: false)
-                .toggleDisliked(bachelor, context),
+            dislikedBachelorsProvider.toggleDisliked(bachelor, context),
         onFavoritePressed: () =>
-            Provider.of<FavoriteBachelorsProvider>(context, listen: false)
-                .toggleFavorite(bachelor, context),
+            favoriteBachelorsProvider.toggleFavorite(bachelor, context),
         isFavorite: isFavorite,
         displayAction: DisplayAction.ALL,
       ),
@@ -66,19 +75,19 @@ class BachelorElementList extends StatelessWidget {
         direction: DismissDirection.endToStart,
         onDismissed: (direction) {
           if (direction == DismissDirection.endToStart) {
-            Provider.of<FavoriteBachelorsProvider>(context, listen: false)
-                .toggleFavorite(bachelor, context, forceDelete: true);
+            favoriteBachelorsProvider.toggleFavorite(bachelor, context,
+                forceDelete: true);
           }
         },
         background: Container(
-          color: Colors.red,
+          color: AppColors['favorite'],
           child: Align(
             alignment: Alignment.centerRight,
             child: Padding(
               padding: const EdgeInsets.only(right: 16.0),
               child: Icon(
                 Icons.favorite_border_rounded,
-                color: Colors.white,
+                color: AppColors['white'],
               ),
             ),
           ),

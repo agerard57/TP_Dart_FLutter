@@ -31,6 +31,14 @@
   "@homePageFiltersResetButton": {
     "description": "Label du bouton pour réinitialiser les filtres"
   },
+  "homePageDrawerTitle": "Paramètres",
+  "@homePageDrawerTitle": {
+    "description": "Titre du drawer"
+  },
+  "homePageDrawerThemeLabel": "Thème sombre",
+  "@homePageDrawerThemeLabel": {
+    "description": "Label du switch pour le thème sombre"
+  },
   "pageNoResults": "Aucun résultat",
   "@pageNoResults": {
     "description": "Message affiché lorsqu'aucun résultat n'est trouvé"

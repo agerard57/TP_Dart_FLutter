@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants/app_colors.dart';
+
 class FavoriteButton extends StatelessWidget {
   final bool isFavorite;
   final VoidCallback onPressed;
@@ -14,7 +16,7 @@ class FavoriteButton extends StatelessWidget {
     return IconButton(
       icon: Icon(
         isFavorite ? Icons.favorite : Icons.favorite_border,
-        color: isFavorite ? Colors.red : Colors.grey,
+        color: isFavorite ? AppColors['favorite'] : AppColors['grey'],
       ),
       onPressed: onPressed,
     );

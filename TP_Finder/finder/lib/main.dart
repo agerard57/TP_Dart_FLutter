@@ -1,3 +1,4 @@
+import 'package:finder/providers/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
@@ -20,6 +21,8 @@ void main() async {
 
   runApp(MultiProvider(
     providers: [
+      ChangeNotifierProvider<ThemeProvider>(
+          create: (context) => ThemeProvider()),
       ChangeNotifierProvider<FavoriteBachelorsProvider>(
           create: (context) => FavoriteBachelorsProvider()),
       ChangeNotifierProvider<DislikedBachelorsProvider>(

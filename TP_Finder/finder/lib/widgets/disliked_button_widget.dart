@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants/app_colors.dart';
+
 class DislikedButton extends StatelessWidget {
   final VoidCallback onPressed;
 
@@ -12,7 +14,7 @@ class DislikedButton extends StatelessWidget {
     return IconButton(
       icon: Icon(
         Icons.thumb_down_outlined,
-        color: Colors.grey,
+        color: AppColors['grey'],
       ),
       onPressed: onPressed,
     );

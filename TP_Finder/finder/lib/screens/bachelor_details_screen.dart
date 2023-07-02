@@ -28,7 +28,7 @@ class BachelorDetails extends StatelessWidget {
 
       return Scaffold(
         appBar: AppBar(
-          leading: BackButton(onPressed: () => GoRouter.of(context).go("/")),
+          leading: BackButton(onPressed: () => GoRouter.of(context).go('/')),
           title: Text(AppLocalizations.of(context)!.detailsPageTitle(
             bachelor.fullName,
           )),

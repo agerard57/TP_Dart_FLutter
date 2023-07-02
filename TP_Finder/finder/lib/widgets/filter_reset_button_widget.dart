@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../constants/app_colors.dart';
 import '../models/bachelor_model.dart';
 
 class ResetButtonFilter extends StatelessWidget {
@@ -25,7 +26,9 @@ class ResetButtonFilter extends StatelessWidget {
           ElevatedButton(
             onPressed: onResetFilters,
             style: ElevatedButton.styleFrom(
-              backgroundColor: areFiltersApplied ? Colors.red : Colors.grey,
+              backgroundColor:
+                  areFiltersApplied ? AppColors['red'] : AppColors['grey'],
+              foregroundColor: AppColors["white"],
             ),
             child: Text(
               AppLocalizations.of(context)!.homePageFiltersResetButton,

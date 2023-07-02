@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants/app_colors.dart';
+
 class FilterApplied extends StatelessWidget {
   final bool isDisplayed;
   final String filterName;
@@ -21,15 +23,15 @@ class FilterApplied extends StatelessWidget {
               children: [
                 Text(
                   '${filterName}: ',
-                  style: TextStyle(color: Colors.grey[800]),
+                  style: TextStyle(color: AppColors['greyChipLabel']),
                 ),
                 SizedBox(width: 8.0),
                 Chip(
                   label: Text(
                     filterValue,
-                    style: TextStyle(color: Colors.grey[800]),
+                    style: TextStyle(color: AppColors['greyChipText']),
                   ),
-                  backgroundColor: Colors.grey[300],
+                  backgroundColor: AppColors['greyChip'],
                 ),
               ],
             ),

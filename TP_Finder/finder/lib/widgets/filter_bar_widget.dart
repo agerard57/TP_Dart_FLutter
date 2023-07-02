@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../constants/app_colors.dart';
 import '../models/bachelor_model.dart';
 import 'filter_applied_widget.dart';
 import 'filter_first_name_widget.dart';
@@ -70,7 +71,7 @@ class FiltersBar extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: Colors.grey[800],
+                  color: AppColors['grey'],
                 ),
               ),
             ],
