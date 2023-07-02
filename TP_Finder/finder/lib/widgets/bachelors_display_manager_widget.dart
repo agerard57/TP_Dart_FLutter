@@ -11,11 +11,13 @@ class BachelorDisplayManager extends StatefulWidget {
   final BachelorsDisplayMode mode;
   final List<Bachelor> bachelorList;
   final List<Bachelor> favoriteBachelors;
+  final bool enableSwipeToDeleteListElement;
 
   const BachelorDisplayManager({
     required this.mode,
     required this.bachelorList,
     required this.favoriteBachelors,
+    this.enableSwipeToDeleteListElement = false,
   });
 
   @override
@@ -72,6 +74,8 @@ class _BachelorDisplayManagerState extends State<BachelorDisplayManager> {
                   child: BachelorDisplayList(
                     bachelorList: widget.bachelorList,
                     favoriteBachelors: widget.favoriteBachelors,
+                    enableSwipeToDeleteListElement:
+                        widget.enableSwipeToDeleteListElement,
                   ),
                 ),
               if (currentMode == BachelorsDisplayMode.GRID)

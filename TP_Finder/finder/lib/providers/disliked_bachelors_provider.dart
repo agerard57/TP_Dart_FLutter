@@ -20,7 +20,6 @@ class DislikedBachelorsProvider extends ChangeNotifier {
     } else {
       dislikedBachelors.add(bachelor);
 
-      // Remove from favorites if it's there
       Provider.of<FavoriteBachelorsProvider>(context, listen: false)
           .toggleFavorite(bachelor, context, forceDelete: true);
 

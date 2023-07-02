@@ -6,10 +6,12 @@ import 'bachelor_element_list_widget.dart';
 class BachelorDisplayList extends StatelessWidget {
   final List<Bachelor> bachelorList;
   final List<Bachelor> favoriteBachelors;
+  final bool enableSwipeToDeleteListElement;
 
   const BachelorDisplayList({
     required this.bachelorList,
     required this.favoriteBachelors,
+    required this.enableSwipeToDeleteListElement,
   });
 
   @override
@@ -24,6 +26,7 @@ class BachelorDisplayList extends StatelessWidget {
         return BachelorElementList(
           bachelor: bachelor,
           isFavorite: isFavorite,
+          enableSwipeToDelete: enableSwipeToDeleteListElement,
         );
       },
     );

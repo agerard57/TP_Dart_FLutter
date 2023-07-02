@@ -48,6 +48,7 @@ class _FavoriteBachelorsState extends State<FavoriteBachelors> {
             mode: BachelorsDisplayMode.LIST,
             bachelorList: favoriteBachelors,
             favoriteBachelors: favoriteBachelors,
+            enableSwipeToDeleteListElement: true,
           ),
         );
       },
