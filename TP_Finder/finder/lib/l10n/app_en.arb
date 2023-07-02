@@ -132,5 +132,9 @@
   "devModeSpeedDialLanguageLabel": "Switch to French",
   "@devModeSpeedDialLanguageLabel": {
     "description": "Label for the language switch button"
+  },
+  "devModeSpeedDialGenerateNewBachelorsLabel": "Generate new Bachelors",
+  "@devModeSpeedDialGenerateNewBachelorsLabel": {
+    "description": "Label for the said button"
   }
 }

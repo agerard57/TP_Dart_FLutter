@@ -4,6 +4,7 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:provider/provider.dart';
 
 import '../constants/app_colors.dart';
+import '../data/repository/bachelor_data_manager.dart';
 import '../finder_app.dart';
 import '../providers/theme_provider.dart';
 
@@ -37,6 +38,24 @@ class DevModeSpeedDial extends StatelessWidget {
           ),
           onTap: () => FinderApp.of(context)!.switchLocale(),
           label: AppLocalizations.of(context)!.devModeSpeedDialLanguageLabel,
+          labelStyle: TextStyle(fontSize: 18.0),
+          labelBackgroundColor: themeProvider.isDarkModeEnabled
+              ? AppColors['black']
+              : AppColors['white'],
+        ),
+        SpeedDialChild(
+          child: Icon(
+            Icons.refresh,
+            color: themeProvider.isDarkModeEnabled
+                ? AppColors['white']
+                : AppColors['black'],
+          ),
+          onTap: () {
+            BachelorDataManager().generateBachelors();
+            FinderApp.of(context)!.refresh();
+          },
+          label: AppLocalizations.of(context)!
+              .devModeSpeedDialGenerateNewBachelorsLabel,
           labelStyle: TextStyle(fontSize: 18.0),
           labelBackgroundColor: themeProvider.isDarkModeEnabled
               ? AppColors['black']

@@ -9,7 +9,9 @@ class FavoriteBachelorsProvider extends ChangeNotifier {
 
   void toggleFavorite(Bachelor bachelor, BuildContext context,
       {bool forceDelete = false}) {
-    if (favoriteBachelors.contains(bachelor)) {
+    if (forceDelete) {
+      favoriteBachelors.remove(bachelor);
+    } else if (favoriteBachelors.contains(bachelor)) {
       favoriteBachelors.remove(bachelor);
       showSnackBar(
         context,
@@ -21,10 +23,6 @@ class FavoriteBachelorsProvider extends ChangeNotifier {
         context,
         AppLocalizations.of(context)!.snackBarMessageAddFavorite,
       );
-    }
-
-    if (forceDelete) {
-      favoriteBachelors.remove(bachelor);
     }
 
     notifyListeners();

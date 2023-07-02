@@ -22,7 +22,7 @@ void main() {
         number.sumFails();
       }
     } catch (e) {
-      print(e); // Affiche : ArgumentError: Custom argument error
+      print(e);
     }
   });
 

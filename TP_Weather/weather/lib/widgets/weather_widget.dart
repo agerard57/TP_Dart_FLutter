@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+
 import '../services/weather_service.dart';
-import 'map_widget.dart';
+import 'weather_data_widget.dart';
 
 class WeatherWidget extends StatefulWidget {
   const WeatherWidget({Key? key}) : super(key: key);
@@ -110,47 +111,7 @@ class WeatherWidgetState extends State<WeatherWidget> {
             child: const Text('Get weather data using current location'),
           ),
           const SizedBox(height: 16.0),
-          FutureBuilder<Map<String, dynamic>>(
-            future: _weatherData,
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const CircularProgressIndicator();
-              } else if (snapshot.hasError) {
-                return Text('Error: ${snapshot.error}');
-              } else if (snapshot.hasData) {
-                final weatherData = snapshot.data!;
-                final cityName = weatherData['name'];
-                final country = weatherData['sys']['country'];
-                final temperature = weatherData['main']['temp'];
-
-                return Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('City: $cityName, Country: $country'),
-                      const SizedBox(height: 8.0),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(Icons.thermostat_outlined),
-                          const SizedBox(width: 4.0),
-                          Text('$temperature °C'),
-                        ],
-                      ),
-                      Flexible(
-                        child: MapWidget(
-                          latitude: snapshot.data!['coord']['lat'] as double,
-                          longitude: snapshot.data!['coord']['lon'] as double,
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              } else {
-                return const Text('No weather data available');
-              }
-            },
-          ),
+          WeatherDataWidget(weatherData: _weatherData),
         ],
       ),
     );

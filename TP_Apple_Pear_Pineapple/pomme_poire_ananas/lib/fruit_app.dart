@@ -14,6 +14,7 @@ class FruitApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const FruitHomePage(title: 'Fruit List Home Page'),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

@@ -23,6 +23,10 @@ class _FinderAppState extends State<FinderApp> {
     _locale = Locale('en', 'US');
   }
 
+  void refresh() {
+    setState(() {});
+  }
+
   void switchLocale() {
     setState(() {
       _locale = _locale == Locale('en', 'US')
@@ -46,6 +50,7 @@ class _FinderAppState extends State<FinderApp> {
           routerDelegate: AppRouter.router.routerDelegate,
           routeInformationProvider: AppRouter.router.routeInformationProvider,
           routeInformationParser: AppRouter.router.routeInformationParser,
+          debugShowCheckedModeBanner: false,
         );
       },
     );

@@ -11,6 +11,7 @@ class CasinoApp extends StatelessWidget {
       title: 'One-armed bandit',
       theme: ThemeData(primarySwatch: Colors.deepPurple),
       home: const OneArmedBanditPage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

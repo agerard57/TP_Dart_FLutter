@@ -7,6 +7,7 @@ import '../models/display_action_model.dart';
 import '../providers/disliked_bachelors_provider.dart';
 import '../providers/favorite_bachelors_provider.dart';
 import '../models/bachelor_model.dart';
+import '../providers/theme_provider.dart';
 import 'action_icons_widget.dart';
 
 class BachelorElementGrid extends StatelessWidget {
@@ -20,18 +21,21 @@ class BachelorElementGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final backgroundColor = isFavorite ? AppColors['favoriteBackground'] : null;
-
-    return Consumer2<FavoriteBachelorsProvider, DislikedBachelorsProvider>(
-      builder:
-          (context, favoriteBachelorsProvider, dislikedBachelorsProvider, _) {
+    return Consumer3<ThemeProvider, FavoriteBachelorsProvider,
+        DislikedBachelorsProvider>(
+      builder: (context, themeProvider, favoriteBachelorsProvider,
+          dislikedBachelorsProvider, _) {
         return GestureDetector(
           onTap: () {
             GoRouter.of(context).go('/bachelor/${bachelor.id}');
           },
           child: Container(
             decoration: BoxDecoration(
-              color: backgroundColor,
+              color: isFavorite
+                  ? themeProvider.isDarkModeEnabled
+                      ? AppColors['favoriteBackgroundDark']
+                      : AppColors['favoriteBackgroundLight']
+                  : null,
               borderRadius: BorderRadius.circular(8.0),
             ),
             child: Column(

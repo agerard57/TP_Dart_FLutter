@@ -10,6 +10,7 @@ class MuseumApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
       ),
       home: Artwork(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

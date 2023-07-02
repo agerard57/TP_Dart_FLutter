@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/weather_widget.dart';
+import 'screens/weather_screen.dart';
 
 class WeatherApp extends StatelessWidget {
   const WeatherApp({super.key});
@@ -13,23 +13,7 @@ class WeatherApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
-      ),
-      body: const Center(
-        child: WeatherWidget(),
-      ),
+      home: const WeatherScreen(),
     );
   }
 }

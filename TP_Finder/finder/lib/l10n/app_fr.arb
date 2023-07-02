@@ -35,6 +35,14 @@
   "@homePageDrawerTitle": {
     "description": "Titre du drawer"
   },
+  "homePageDrawerDarkThemeLabel": "Thème sombre",
+  "@homePageDrawerDarkThemeLabel": {
+    "description": "Label du switch thème sombre"
+  },
+  "homePageDrawerLightThemeLabel": "Thème clair",
+  "@homePageDrawerLightThemeLabel": {
+    "description": "Label du switch thème clair"
+  },
   "homePageDrawerThemeLabel": "Thème sombre",
   "@homePageDrawerThemeLabel": {
     "description": "Label du switch pour le thème sombre"
@@ -128,5 +136,9 @@
   "devModeSpeedDialLanguageLabel": "Passer en Anglais",
   "@devModeSpeedDialLanguageLabel": {
     "description": "Label du bouton pour switcher la langue"
+  },
+  "devModeSpeedDialGenerateNewBachelorsLabel": "Genérer de nouveaux Bachelors",
+  "@devModeSpeedDialGenerateNewBachelorsLabel": {
+    "description": "Label pour le button correspondant"
   }
 }
