@@ -75,8 +75,10 @@ class BachelorElementList extends StatelessWidget {
         direction: DismissDirection.endToStart,
         onDismissed: (direction) {
           if (direction == DismissDirection.endToStart) {
-            favoriteBachelorsProvider.toggleFavorite(bachelor, context,
-                forceDelete: true);
+            favoriteBachelorsProvider.toggleFavorite(
+              bachelor,
+              context,
+            );
           }
         },
         background: Container(
