@@ -1,8 +1,3 @@
-# https://dart.dev/guides/libraries/private-files
-# Created by `dart pub`
-.dart_tool/
-build/
-
 # Miscellaneous
 *.class
 *.log
@@ -47,5 +42,3 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-
-.env
